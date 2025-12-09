@@ -1,12 +1,3 @@
-/**
- * `body` style:
- * - Removes default browser margin.
- * - Sets a modern, cross-platform sans-serif font stack for consistent appearance.
- * - Enables CSS font smoothing for improved font rendering on WebKit and Mozilla browsers.
- *
- * `code` style:
- * - Sets a monospaced font stack for code elements for readability and code-like appearance.
- */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
