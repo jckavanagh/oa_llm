@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { searchOwners } from "../services/ownersService";
+// import { searchOwners } from "../services/ownersService";
+import { searchParcels } from "../services/parcelsService";
 
 export function useDebouncedSearch(searchQuery, minLength = 2, delay = 300) {
   const [results, setResults] = useState([]);
@@ -27,7 +28,8 @@ export function useDebouncedSearch(searchQuery, minLength = 2, delay = 300) {
       setError(null);
 
       try {
-        const data = await searchOwners(searchQuery);
+        // const data = await searchOwners(searchQuery);
+        const data = await searchParcels(searchQuery);
         setResults(data);
       } catch (err) {
         console.error("Search error:", err);
