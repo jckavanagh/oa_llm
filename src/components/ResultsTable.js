@@ -1,4 +1,12 @@
+import { clickParcelId } from "../services/owners_pIDService";
+import { useNavigate } from "react-router-dom";
+
 export default function ResultsTable({ owners, searchQuery }) {
+  const navigate = useNavigate();
+  const handleClickParcelId = (parcelId) => {
+    clickParcelId(parcelId);
+    navigate(`/property-report/${parcelId}`);
+  };
   if (searchQuery.length > 2 && owners.length === 0) {
     return <p>No results found.</p>;
   }
@@ -16,7 +24,11 @@ export default function ResultsTable({ owners, searchQuery }) {
           <tr key={index}>
             <td className="table-cell">{owner.situs_address || "N/A"}</td>
             {/* <td className="table-cell">{owner.situs_pID || "N/A"}</td> */}
-            <td className="table-cell">{owner.parcel_id || "N/A"}</td>
+            <td className="table-cell">
+              <button onClick={() => handleClickParcelId(owner.parcel_id)}>
+                {owner.parcel_id || "N/A"}
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
